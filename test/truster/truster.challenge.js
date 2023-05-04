@@ -27,10 +27,6 @@ describe('[Challenge] Truster', function () {
 
   it('Execution', async function () {
     /** CODE YOUR SOLUTION HERE */
-  })
-
-  after(async function () {
-    /** SUCCESS CONDITIONS - NO NEED TO CHANGE ANYTHING HERE */
 
     let ABI = ['function approve(address to, uint amount)']
     let interface = new ethers.utils.Interface(ABI)
@@ -42,6 +38,10 @@ describe('[Challenge] Truster', function () {
     await token
       .connect(player)
       .transferFrom(pool.address, player.address, TOKENS_IN_POOL)
+  })
+
+  after(async function () {
+    /** SUCCESS CONDITIONS - NO NEED TO CHANGE ANYTHING HERE */
 
     // Player has taken all tokens from the pool
     expect(await token.balanceOf(player.address)).to.equal(TOKENS_IN_POOL)
