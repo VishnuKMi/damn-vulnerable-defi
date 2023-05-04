@@ -29,7 +29,7 @@ contract TrusterLenderPool is ReentrancyGuard {
         uint256 balanceBefore = token.balanceOf(address(this));
 
         token.transfer(borrower, amount);
-        target.functionCall(data);
+        target.functionCall(data); // Executes a function in the target contract with the 'data' byte array as input.
 
         if (token.balanceOf(address(this)) < balanceBefore)
             revert RepayFailed();
