@@ -32,7 +32,7 @@ contract IFlashLoanEtherReceiver {
         require(success, "Failed withdraw from pool");
         payable(msg.sender).transfer(amount);
     }
-
-    receive() external payable {}
+    
+    receive() external payable{}
 
 }
