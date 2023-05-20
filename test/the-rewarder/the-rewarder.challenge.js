@@ -127,7 +127,7 @@ describe('[Challenge] The rewarder', function () {
     // Only one round must have taken place
     expect(await rewarderPool.roundNumber()).to.be.eq(3)
 
-    // Users should get neglegible rewards this round
+    // Users should get negligible rewards this round
     for (let i = 0; i < users.length; i++) {
       await rewarderPool.connect(users[i]).distributeRewards()
       const userRewards = await rewardToken.balanceOf(users[i].address)
