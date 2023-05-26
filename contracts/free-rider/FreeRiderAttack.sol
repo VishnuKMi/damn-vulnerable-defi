@@ -11,7 +11,7 @@ import "./FreeRiderNFTMarketplace.sol";
 import "./FreeRiderRecovery.sol";
 import "../DamnValuableNFT.sol";
 
-contract Attacker is IUniswapV2Callee, IERC721Receiver {
+contract FreeRiderAttack is IUniswapV2Callee, IERC721Receiver {
     IUniswapV2Pair public uPair;
     WETH public wEth;
     FreeRiderNFTMarketplace public nftExchange;
@@ -60,7 +60,7 @@ contract Attacker is IUniswapV2Callee, IERC721Receiver {
 
     function transferNft(uint256 id) public {
         bytes memory data = abi.encode(player);
-        nft.safeTransferFrom(address(this), address(reccovery), id, data);
+        nft.safeTransferFrom(address(this), address(recovery), id, data);
     }
 
     // Implementing the 'onERC721Received' interface from the 'IERC721Receiver' contract.
